@@ -20,6 +20,11 @@ function __init__()
 
     JLLWrappers.@generate_init_footer()
         global compat_version = v"11.8.0"
+    # global variables we will set
+    global libcuda
+    global libcuda_version
+    global libcuda_original_version
+
     # minimal API call wrappers we need
     function driver_version(library_handle)
         function_handle = Libdl.dlsym(library_handle, "cuDriverGetVersion")
@@ -49,16 +54,12 @@ function __init__()
         @debug "No system CUDA driver found"
         return
     end
-    global libcuda = system_driver
+    libcuda = system_driver
 
     # check if the system driver is already loaded. in that case, we have to use it because
     # the code that loaded it in the first place might have made assumptions based on it.
     system_driver_loaded = Libdl.dlopen(system_driver, Libdl.RTLD_NOLOAD;
                                         throw_error=false) !== nothing
-    if system_driver_loaded
-        @debug "System CUDA driver already loaded, continuing using it"
-        return
-    end
     driver_handle = Libdl.dlopen(system_driver; throw_error=true)
 
     # query the system driver version
@@ -73,6 +74,14 @@ function __init__()
         return
     end
     @debug "System CUDA driver found at $system_driver, detected as version $system_version"
+    libcuda = system_driver
+    libcuda_version = system_version
+
+    # check if the system driver is already loaded (see above)
+    if system_driver_loaded
+        @debug "System CUDA driver already loaded, continuing using it"
+        return
+    end
 
     # check the user preference
     if !parse(Bool, get(ENV, "JULIA_CUDA_USE_COMPAT", "true"))
@@ -136,16 +145,17 @@ function __init__()
                                             throw_error=false) !== nothing
         if compat_driver_loaded
             error("Could not unload the forward compatible CUDA driver library." *
-                "This is probably caused by running Julia under a tool that hooks CUDA API calls." *
-                "In that case, prevent Julia from loading multiple drivers" *
-                " by setting JULIA_CUDA_USE_COMPAT=false in your environment.")
+                  "This is probably caused by running Julia under a tool that hooks CUDA API calls." *
+                  "In that case, prevent Julia from loading multiple drivers" *
+                  " by setting JULIA_CUDA_USE_COMPAT=false in your environment.")
         end
 
         return
     end
 
     @debug "Successfully loaded forwards-compatible CUDA driver"
-    global system_version = system_version
-    global libcuda = compat_driver
+    libcuda = compat_driver
+    libcuda_version = compat_version
+    libcuda_original_version = system_version
 
 end  # __init__()
