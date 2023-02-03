@@ -19,18 +19,25 @@ function __init__()
     )
 
     JLLWrappers.@generate_init_footer()
-        global compat_version = v"12.0.0"
+    
+    global compat_version = v"12.0.0"
     # global variables we will set
     global libcuda
     global libcuda_version
     global libcuda_original_version
+    # compat_version is set in build_tarballs.jl
 
     # minimal API call wrappers we need
     function driver_version(library_handle)
-        function_handle = Libdl.dlsym(library_handle, "cuDriverGetVersion")
+        function_handle = Libdl.dlsym(library_handle, "cuDriverGetVersion"; throw_error=false)
+        if function_handle === nothing
+            @debug "Driver library seems invalid (does not contain 'cuDriverGetVersion')"
+            return nothing
+        end
         version_ref = Ref{Cint}()
         status = ccall(function_handle, Cint, (Ptr{Cint},), version_ref)
         if status != 0
+            @debug "Call to 'cuDriverGetVersion' failed with status $status"
             return nothing
         end
         major, ver = divrem(version_ref[], 1000)
@@ -60,7 +67,11 @@ function __init__()
     # the code that loaded it in the first place might have made assumptions based on it.
     system_driver_loaded = Libdl.dlopen(system_driver, Libdl.RTLD_NOLOAD;
                                         throw_error=false) !== nothing
-    driver_handle = Libdl.dlopen(system_driver; throw_error=true)
+    driver_handle = Libdl.dlopen(system_driver; throw_error=false)
+    if driver_handle === nothing
+        @debug "Failed to load system CUDA driver"
+        return
+    end
 
     # query the system driver version
     # XXX: apparently cuDriverGetVersion can be used before cuInit,
@@ -103,7 +114,7 @@ function __init__()
                                         throw_error=false) !== nothing
     if system_driver_loaded
         @debug "Could not unload the system CUDA library;" *
-               " this prevents use of the forward-compatible driver"
+                " this prevents use of the forward-compatible driver"
         return
     end
 
@@ -114,7 +125,7 @@ function __init__()
     hooked = haskey(ENV, "CUDA_INJECTION64_PATH")
     if hooked
         @debug "Running under CUDA injection tools;" *
-               " this prevents use of the forward-compatible driver"
+                " this prevents use of the forward-compatible driver"
         return
     end
 
@@ -125,7 +136,7 @@ function __init__()
     end
     compat_driver = libcuda_compat
     @debug "Forward-compatible CUDA driver found at $compat_driver;" *
-           " reported as version $(compat_version)"
+            " known to be version $(compat_version)"
 
     # finally, load the compatibility driver to see if it supports this platform
     driver_handle = Libdl.dlopen(compat_driver; throw_error=true)
@@ -145,9 +156,9 @@ function __init__()
                                             throw_error=false) !== nothing
         if compat_driver_loaded
             error("Could not unload the forward compatible CUDA driver library." *
-                  "This is probably caused by running Julia under a tool that hooks CUDA API calls." *
-                  "In that case, prevent Julia from loading multiple drivers" *
-                  " by setting JULIA_CUDA_USE_COMPAT=false in your environment.")
+                    "This is probably caused by running Julia under a tool that hooks CUDA API calls." *
+                    "In that case, prevent Julia from loading multiple drivers" *
+                    " by setting JULIA_CUDA_USE_COMPAT=false in your environment.")
         end
 
         return
