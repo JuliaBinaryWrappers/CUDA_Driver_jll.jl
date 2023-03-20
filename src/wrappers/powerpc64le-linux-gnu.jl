@@ -22,9 +22,9 @@ function __init__()
     
     global compat_version = v"12.1.0"
     # global variables we will set
-    global libcuda = nothing
-    global libcuda_version = nothing
-    global libcuda_original_version = nothing
+    global libcuda
+    global libcuda_version
+    global libcuda_original_version
     # compat_version is set in build_tarballs.jl
 
     # minimal API call wrappers we need
