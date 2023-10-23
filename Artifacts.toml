@@ -1,30 +1,30 @@
 [[CUDA_Driver]]
 arch = "x86_64"
-git-tree-sha1 = "c24df59b2b8f33c5e49f622180c404a5eae8ad2d"
+git-tree-sha1 = "09eba544c107fcbe4c50dc34a32b398dd75d33fb"
 lazy = true
 libc = "glibc"
 os = "linux"
 
     [[CUDA_Driver.download]]
-    sha256 = "cd1a19de4e298bb1c758feb24fef112b4b897c93fff678fa0766d6f7a1b90dcc"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v0.6.0+4/CUDA_Driver.v0.6.0.x86_64-linux-gnu.tar.gz"
+    sha256 = "a73c6c82e0a8ed2ac423e246cc4475a9198be77f8cbe2bebc3358393833064fd"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v0.7.0+0/CUDA_Driver.v0.7.0.x86_64-linux-gnu.tar.gz"
 [[CUDA_Driver]]
 arch = "powerpc64le"
-git-tree-sha1 = "946dbf690aabc7f69c9d9c6adf01a817869890c2"
+git-tree-sha1 = "e5d6d0a61a57e2aa8d775fd3225197052ed3fd64"
 lazy = true
 libc = "glibc"
 os = "linux"
 
     [[CUDA_Driver.download]]
-    sha256 = "b441aa3ef4ec82374dfbb759959b1fbd26317bc29bffa12a2e0c83ba622ffebd"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v0.6.0+4/CUDA_Driver.v0.6.0.powerpc64le-linux-gnu.tar.gz"
+    sha256 = "87c29cc714ec4f9c48d4a0b71c2ca4603a496e17ab980e0a6cd1c38e15fba19e"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v0.7.0+0/CUDA_Driver.v0.7.0.powerpc64le-linux-gnu.tar.gz"
 [[CUDA_Driver]]
 arch = "aarch64"
-git-tree-sha1 = "a035d52493669ecf9e278aa1611afe8c9514a949"
+git-tree-sha1 = "2cfbea41d3b4527356f569125ef106be9eb3af4d"
 lazy = true
 libc = "glibc"
 os = "linux"
 
     [[CUDA_Driver.download]]
-    sha256 = "de86767919c6d888675d8c9df9aa595935d8383549518c06a718b22130cc7627"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v0.6.0+4/CUDA_Driver.v0.6.0.aarch64-linux-gnu.tar.gz"
+    sha256 = "eb5e5551b20cbd8da05e78ae0baa9a8dfa929b82625517588df09bd7bc1a0566"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v0.7.0+0/CUDA_Driver.v0.7.0.aarch64-linux-gnu.tar.gz"
