@@ -2,7 +2,6 @@
 baremodule CUDA_Driver_jll
 using Base
 using Base: UUID
-using LazyArtifacts
 import JLLWrappers
 
 JLLWrappers.@generate_main_file_header("CUDA_Driver")
