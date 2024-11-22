@@ -22,7 +22,7 @@ function __init__()
 
     JLLWrappers.@init_library_product(
         libnvidia_nvvm,
-        "lib/libnvidia-nvvm.so",
+        "lib/libnvidia-nvvm.so.4",
         nothing,
     )
 
