@@ -162,7 +162,7 @@ function __init__()
         out = Pipe()
         proc = run(pipeline(cmd, stdin=devnull, stdout=out), wait=false)
         close(out.in)
-        out_reader = Threads.@spawn String(readlines(out))
+        out_reader = Threads.@spawn String.(readlines(out))
         wait(proc)
         success(proc) || return nothing
 
