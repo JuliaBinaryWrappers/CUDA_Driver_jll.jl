@@ -1,18 +1,18 @@
 [[CUDA_Driver]]
 arch = "x86_64"
-git-tree-sha1 = "7e64c64a00967ce6115cb8ee560507413f9fce96"
+git-tree-sha1 = "491f7661300f83e39947f7e908fd426a18f52d06"
 libc = "glibc"
 os = "linux"
 
     [[CUDA_Driver.download]]
-    sha256 = "371bf6c878c60dd8afcbae4229174a617a0e9d3a9609989ef9a6da2abe518d43"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.0.2+0/CUDA_Driver.v13.0.2.x86_64-linux-gnu.tar.gz"
+    sha256 = "95d1ab2c10916a887d480dfa4126d75121abad9ea65e67e32cbca3fd5f9736b7"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.1.0+0/CUDA_Driver.v13.1.0.x86_64-linux-gnu.tar.gz"
 [[CUDA_Driver]]
 arch = "aarch64"
-git-tree-sha1 = "ec0f66d29dac8fcce88322decb1f60d670ffd6f3"
+git-tree-sha1 = "c93f0785120dc7b4f5c0cbcfcb39aadcdd9f67de"
 libc = "glibc"
 os = "linux"
 
     [[CUDA_Driver.download]]
-    sha256 = "535b76f88504f70775be3fce2b4c4a5a5bc873d1a7d9b540c5d712f5440d62eb"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.0.2+0/CUDA_Driver.v13.0.2.aarch64-linux-gnu.tar.gz"
+    sha256 = "c479282e093a246d1fdd150cd9b31cfb6a19560c00da32ba230db739e03a6569"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.1.0+0/CUDA_Driver.v13.1.0.aarch64-linux-gnu.tar.gz"
