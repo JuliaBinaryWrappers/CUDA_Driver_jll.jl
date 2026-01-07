@@ -147,17 +147,18 @@ function __init__()
                 return 0
             end
 
-            exit(main(ARGS...))
+            status = main(ARGS...)
+            @debug "Status: $status"
+            exit(status)
         """
 
         # make sure we don't include any system image flags here since this will cause an infinite loop of __init__()
         cmd = ```$(Cmd(filter(!startswith(r"-J|--sysimage"), Base.julia_cmd().exec)))
                  -O0 --compile=min -t1 --startup-file=no
                  -e $script $driver $inspect_devices $deps```
-
+        @debug "cmd: $(cmd)"
         # make sure we use a fresh environment we can load Libdl in
         cmd = addenv(cmd, "JULIA_LOAD_PATH" => nothing, "JULIA_DEPOT_PATH" => nothing)
-
         # run the command
         out = Pipe()
         proc = run(pipeline(cmd, stdin=devnull, stdout=out), wait=false)
@@ -169,6 +170,9 @@ function __init__()
             Threads.@spawn String.(readlines(out))
         end
         wait(proc)
+        @debug "Driver: $(driver)"
+        @debug "test termsignal: $(proc.termsignal)"
+        @debug "test exit code: $(proc.exitcode)"
         success(proc) || return nothing
 
         # parse the versions
