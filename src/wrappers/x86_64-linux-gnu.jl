@@ -61,6 +61,14 @@ function __init__()
         missing
     end
 
+    fork_preference = if haskey(preferences, "fork")
+        parse_preference(preferences["fork"])
+    elseif haskey(ENV, "JULIA_CUDA_FORK_VERSION_CHECK")
+        parse_preference(ENV["JULIA_CUDA_FORK_VERSION_CHECK"])
+    else
+        missing
+    end
+
     libcuda_deps = [libcuda_debugger, libnvidia_nvvm, libnvidia_ptxjitcompiler]
     libcuda_system = Sys.iswindows() ? "nvcuda" : "libcuda.so.1"
 
@@ -258,8 +266,7 @@ function __init__()
     end
 
     # fetch driver details
-    use_forked_julia = false
-    if use_forked_julia
+    if fork_preference === missing || fork_preference
         compat_driver_task = @static if VERSION >= v"1.12-"
             # XXX: avoid concurrent compilation (JuliaLang/julia#59834)
             Threads.@spawn :samepool inspect_driver(libcuda_compat, libcuda_deps)
