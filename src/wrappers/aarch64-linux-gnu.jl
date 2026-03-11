@@ -4,10 +4,10 @@ export cuda_inspect_driver, libcuda_compat, libcuda_debugger, libnvidia_gpucomp,
 JLLWrappers.@generate_wrapper_header("CUDA_Driver")
 JLLWrappers.@declare_library_product(libcuda_compat, "libcuda.so.1")
 JLLWrappers.@declare_library_product(libcuda_debugger, "libcudadebugger.so.1")
-JLLWrappers.@declare_library_product(libnvidia_gpucomp, "libnvidia-gpucomp.so.590.48.01")
+JLLWrappers.@declare_library_product(libnvidia_gpucomp, "libnvidia-gpucomp.so.595.45.04")
 JLLWrappers.@declare_library_product(libnvidia_nvvm, "libnvidia-nvvm.so.4")
 JLLWrappers.@declare_library_product(libnvidia_ptxjitcompiler, "libnvidia-ptxjitcompiler.so.1")
-JLLWrappers.@declare_library_product(libnvidia_tileiras, "libnvidia-tileiras.so.590.48.01")
+JLLWrappers.@declare_library_product(libnvidia_tileiras, "libnvidia-tileiras.so.595.45.04")
 JLLWrappers.@declare_executable_product(cuda_inspect_driver)
 function __init__()
     JLLWrappers.@generate_init_header()
@@ -25,7 +25,7 @@ function __init__()
 
     JLLWrappers.@init_library_product(
         libnvidia_gpucomp,
-        "lib/libnvidia-gpucomp.so.590.48.01",
+        "lib/libnvidia-gpucomp.so.595.45.04",
         nothing,
     )
 
@@ -43,7 +43,7 @@ function __init__()
 
     JLLWrappers.@init_library_product(
         libnvidia_tileiras,
-        "lib/libnvidia-tileiras.so.590.48.01",
+        "lib/libnvidia-tileiras.so.595.45.04",
         nothing,
     )
 
