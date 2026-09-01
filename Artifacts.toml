@@ -7,7 +7,7 @@ tegra = "none"
 
     [[CUDA_Driver.download]]
     sha256 = "e9a11146f54df0dbacf5c934b9fcfd5a4e94fd4668d854ab323f33d6ab786e66"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.2+0/CUDA_Driver.v13.3.2.x86_64-linux-gnu-tegra+none.tar.gz"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.3+0/CUDA_Driver.v13.3.3.x86_64-linux-gnu-tegra+none.tar.gz"
 [[CUDA_Driver]]
 arch = "aarch64"
 git-tree-sha1 = "bd27dcb7380c9a6ba85005d908bed434de241e6c"
@@ -17,7 +17,7 @@ tegra = "none"
 
     [[CUDA_Driver.download]]
     sha256 = "d26278fc6341481574cfa7c15c01e9ed1cee2dbc2a18c5ba2473f4da38e1b342"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.2+0/CUDA_Driver.v13.3.2.aarch64-linux-gnu-tegra+none.tar.gz"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.3+0/CUDA_Driver.v13.3.3.aarch64-linux-gnu-tegra+none.tar.gz"
 [[CUDA_Driver]]
 arch = "aarch64"
 git-tree-sha1 = "d52b82b5a92286d930a743f9ca7453019a6306f3"
@@ -27,7 +27,7 @@ tegra = "35"
 
     [[CUDA_Driver.download]]
     sha256 = "2d7e352fc1d04b7ca83a59fe62fe4d5d788644d98039713798259eb504856a8d"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.2+0/CUDA_Driver.v13.3.2.aarch64-linux-gnu-tegra+35.tar.gz"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.3+0/CUDA_Driver.v13.3.3.aarch64-linux-gnu-tegra+35.tar.gz"
 [[CUDA_Driver]]
 arch = "aarch64"
 git-tree-sha1 = "1e6a8f1a5ee7696045bce65a60d42b4fde8e3522"
@@ -37,7 +37,7 @@ tegra = "36"
 
     [[CUDA_Driver.download]]
     sha256 = "1b7677a8d575e5715befbd238b97822cfa4aaf3bcf5f3a0c81aeae0fb99067de"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.2+0/CUDA_Driver.v13.3.2.aarch64-linux-gnu-tegra+36.tar.gz"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.3+0/CUDA_Driver.v13.3.3.aarch64-linux-gnu-tegra+36.tar.gz"
 [[CUDA_Driver]]
 arch = "x86_64"
 git-tree-sha1 = "30ac62ef81e35822f3f23206cc2df95d13801065"
@@ -46,7 +46,7 @@ tegra = "none"
 
     [[CUDA_Driver.download]]
     sha256 = "79bd71a44613b9dd86dc30f3b01913c71fd93f7a79f3bc0f741cf913c788af97"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.2+0/CUDA_Driver.v13.3.2.x86_64-w64-mingw32-tegra+none.tar.gz"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.3+0/CUDA_Driver.v13.3.3.x86_64-w64-mingw32-tegra+none.tar.gz"
 [[CUDA_Driver]]
 arch = "aarch64"
 git-tree-sha1 = "b243a1c2dc3ffae9b546ae95f949f25cb10cf3be"
@@ -56,7 +56,7 @@ tegra = "32"
 
     [[CUDA_Driver.download]]
     sha256 = "37ba08dc1977c965af92c700008b52328a23ffaf76b7f4b53a1ecd5aba0e2e25"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.2+0/CUDA_Driver.v13.3.2.aarch64-linux-gnu-tegra+32.tar.gz"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.3+0/CUDA_Driver.v13.3.3.aarch64-linux-gnu-tegra+32.tar.gz"
 [[CUDA_Driver]]
 arch = "aarch64"
 git-tree-sha1 = "b243a1c2dc3ffae9b546ae95f949f25cb10cf3be"
@@ -66,4 +66,4 @@ tegra = "38"
 
     [[CUDA_Driver.download]]
     sha256 = "37ba08dc1977c965af92c700008b52328a23ffaf76b7f4b53a1ecd5aba0e2e25"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.2+0/CUDA_Driver.v13.3.2.aarch64-linux-gnu-tegra+38.tar.gz"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_Driver_jll.jl/releases/download/CUDA_Driver-v13.3.3+0/CUDA_Driver.v13.3.3.aarch64-linux-gnu-tegra+38.tar.gz"
