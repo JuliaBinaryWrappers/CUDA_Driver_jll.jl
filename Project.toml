@@ -1,4 +1,4 @@
-version = "13.3.6+0"
+version = "13.5.0+0"
 name = "CUDA_Driver_jll"
 uuid = "4ee394cb-3365-5eb0-8335-949819d2adfc"
 
